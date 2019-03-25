@@ -168,7 +168,7 @@ bool GroupSyncRead::isAvailable(uint8_t id, uint16_t address, uint16_t data_leng
   if (ph_->getProtocolVersion() == 1.0 || last_result_ == false || data_list_.find(id) == data_list_.end())
     return false;
 
-  if (address < start_address_ || start_address_ + data_length_ - data_length < address)
+  if (address < start_address_ || start_address_ + data_length_ < address - data_length)
     return false;
 
   return true;

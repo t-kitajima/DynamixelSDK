@@ -291,7 +291,7 @@ uint8_t groupSyncReadIsAvailable(int group_num, uint8_t id, uint16_t address, ui
   if (groupData[group_num].protocol_version == 1 || groupData[group_num].last_result == False || groupData[group_num].data_list[data_num].id == NOT_USED_ID)
     return False;
 
-  if (address < groupData[group_num].start_address || groupData[group_num].start_address + groupData[group_num].data_length - data_length < address) {
+  if (address < groupData[group_num].start_address || groupData[group_num].start_address + groupData[group_num].data_length < address - data_length) {
     return False;
   }
   return True;

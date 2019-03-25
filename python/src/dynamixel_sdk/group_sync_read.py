@@ -122,7 +122,7 @@ class GroupSyncRead:
         if self.ph.getProtocolVersion() == 1.0 or self.last_result is False or dxl_id not in self.data_dict:
             return False
 
-        if (address < self.start_address) or (self.start_address + self.data_length - data_length < address):
+        if (address < self.start_address) or (self.start_address + self.data_length < address - data_length):
             return False
 
         return True
